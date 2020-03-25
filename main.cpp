@@ -25,16 +25,24 @@
 	nik: 191011402923
 	kelas: 02TPLE001
 	mata_kuliah: algoritma dan pemrograman 2
-	source: https://github.com/rmdhfz/nilai
-	1. struct & pointer
-	2. procedure ekternal
-	3. procedure in-line
+	source: https://github.com/rmdhfz/nilai.git
+
+	list of :
+	1. struct 
+	2. pointer
+	3. procedure ekternal
+	4. procedure in-line
+
+	list of procedure :
+	1. BuatSaran
+	2. SetGrade
+	3. int nilaiAkhir : procedure-in-line
 */
-#include <iostream>
-using namespace std;
+#include <iostream> // load library iostream
+using namespace std; // inisialisasi namespace std
 /*pembuatan struct (data structure) dengan nama struct DataNilai*/
 struct DataNilai{
-	char nama[30];
+	char nama[30];	// nama bertipe data char      - member
 	int absen; 		// absen bertipe data int (10%) - member
 	int tugas; 	    // tugas bertipe data int (20%) member
 	int uts; 		// uts bertipe data int (30%) - member
@@ -59,7 +67,7 @@ void BuatSaran(int nilai){
 /*membuat procedure SetGrade*/
 void SetGrade(int nilaiAkhir){ 
 	char Grade; // deklarasi variabel Grade dengan tipe data char
-	string note;
+	string note; // deklarasi variabel note dengan tipe data string
 	if (nilaiAkhir >= 80){
 		Grade = 'A';
 		note = "Anda lulus dengan nilai yang sangat baik";
@@ -74,11 +82,11 @@ void SetGrade(int nilaiAkhir){
 		note = "Nilai anda kurang baik\n";
 	}else{
 		Grade = 'E';
-		note = "\033[1;31mAnda tidak lulus, nilai anda tidak baik\033[0m\n";
+		note = "\033[1;31mAnda tidak lulus, nilai anda tidak baik\033[0m";
 	}
-	cout << Grade << endl; // cetak grade sesuai dengan kondisi dari parameter nilaiAkhir, yang diberikan pada int main()
-	cout << "\t3) Keterangan\t: " << note << endl; // cetak note sesuai dengan kondisi dari parameter nilaiAkhir, yang diberikan pada int main()
-	BuatSaran(nilaiAkhir);
+	cout << Grade << endl; 							// cetak grade sesuai dengan kondisi dari parameter nilaiAkhir, yang diberikan pada int main()
+	cout << "\t3) Keterangan\t: " << note << endl;	// cetak note sesuai dengan kondisi dari parameter nilaiAkhir, yang diberikan pada int main()
+	BuatSaran(nilaiAkhir);							// proses pembuatan point ke-4, yaitu saran dengan menggunakan procedur BuatSaran berdasarrkan nilaiAkhir
 }
 
 /*program utama*/
@@ -117,13 +125,14 @@ int main(){
     printf("\t4) Nilai UTS\t\t: %d\n", pointer->uts);	// tampilkan informasi nilai uts
     printf("\t5) Nilai UAS\t\t: %d\n", pointer->uas);	// tampilkan informasi nilai uas
 
-    /*procedure in-line*/
+    /*procedure in-line (nilaiAkhir)*/
 	int nilaiAkhir = (pointer->absen * 10 / 100) + (pointer->tugas * 20 / 100) + (pointer->uts * 30 / 100) + (pointer->uas * 40 / 100);
     
 	printf("--------------------------------------------------\n");
 	printf("|                Hasil Kalkulasi                 |\n");
 	printf("--------------------------------------------------\n");
 	printf("\t1) Nilai Akhir\t: %d\n",  nilaiAkhir);
+
     /*execute procedure eksternal: SetGrade()*/
     cout<<"\t2) Grade\t: "; SetGrade(nilaiAkhir);
 
@@ -131,9 +140,10 @@ int main(){
     printf("--------------------------------------------------\n");
 	printf("|              Keterangan Kalkulasi              |\n");
 	printf("--------------------------------------------------\n");
-	printf("\t- Nilai Absensi memiliki bobot\t: 10%\n");
+	printf("\t- Nilai Absen memiliki bobot\t: 10%\n");
 	printf("\t- Nilai Tugas memiliki bobot\t: 20%\n");
 	printf("\t- Nilai UTS memiliki bobot\t: 30%\n");
 	printf("\t- Nilai UAS memiliki bobot\t: 40%\n");
-    return 0;
+
+    return 0; // berikan informasi kepada CPU bahwa program berjalan dengan lancar dan kembalikan nilai 0;
 }
