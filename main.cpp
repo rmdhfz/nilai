@@ -23,8 +23,12 @@
 	
 	name: Hafiz Ramadhan
 	nik: 191011402923
-	github: https://github.com/rmdhfz/nilai
-
+	kelas: 02TPLE001
+	mata_kuliah: algoritma dan pemrograman 2
+	source: https://github.com/rmdhfz/nilai
+	1. struct & pointer
+	2. procedure ekternal
+	3. procedure in-line
 */
 #include <iostream>
 using namespace std;
@@ -36,21 +40,28 @@ struct DataNilai{
 	int uts; 		// uts bertipe data int (30%) - member
 	int uas; 		// uas bertipe data int (40%) - member
 };
-/*membuat procedur SetGrade*/
+/*membuat procedure SetGrade*/
 void SetGrade(int nilaiAkhir){ 
 	char Grade; // deklarasi variabel Grade dengan tipe data char
+	string note;
 	if (nilaiAkhir >= 80){
 		Grade = 'A';
+		note = "Anda lulus dengan nilai yang sangat baik";
 	}else if (nilaiAkhir >= 70){
 		Grade = 'B';
+		note = "Anda lulus dengan nilai yang baik";
 	}else if (nilaiAkhir >= 60){
 		Grade = 'C';
+		note = "Anda lulus dengan nilai yang cukup baik";
 	}else if (nilaiAkhir >= 50){
 		Grade = 'D';
+		note = "Nilai anda kurang baik";
 	}else{
 		Grade = 'E';
+		note = "Anda tidak lulus, nilai anda tidak baik";
 	}
 	cout << Grade << endl; // cetak grade sesuai dengan kondisi dari parameter nilaiAkhir, yang diberikan pada int main()
+	cout << "\t3) Keterangan\t: " << note << endl; // cetak note sesuai dengan kondisi dari parameter nilaiAkhir, yang diberikan pada int main()
 }
 /*program utama*/
 int main(){
