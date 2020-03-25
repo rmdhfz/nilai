@@ -22,6 +22,7 @@
 	SOFTWARE.
 	
 	name: Hafiz Ramadhan
+	nik: 191011402923
 	github: https://github.com/rmdhfz/nilai
 
 */
@@ -40,11 +41,11 @@ void SetGrade(int nilaiAkhir){
 	char Grade; // deklarasi variabel Grade dengan tipe data char
 	if (nilaiAkhir >= 80){
 		Grade = 'A';
-	}else if (nilaiAkhir > 70){
+	}else if (nilaiAkhir >= 70){
 		Grade = 'B';
-	}else if (nilaiAkhir > 60){
+	}else if (nilaiAkhir >= 60){
 		Grade = 'C';
-	}else if (nilaiAkhir > 50){
+	}else if (nilaiAkhir >= 50){
 		Grade = 'D';
 	}else{
 		Grade = 'E';
@@ -58,34 +59,34 @@ int main(){
 	DataNilai data, *pointer; // pembuatan object diluar struct
 	pointer = &data; // proses dereference https://stackoverflow.com/questions/4955198/what-does-dereferencing-a-pointer-mean
 
-	printf("--------------------------------------------------\n");
-	printf("------  Program Menghitung Nilai Mahasiswa  ------\n");
-	printf("--------------------------------------------------\n");
+	printf("-------------------------------------------------\n");
+	printf("|      Program Menghitung Nilai Mahasiswa       |\n");
+	printf("-------------------------------------------------\n");
 
-	printf("\t1) Masukan nama Mahasiswa : ");
+	printf("\t1) Masukan nama\t\t: ");
 	scanf("%29[^\n]%c", &pointer->nama); // mengalokasikan alamat nama kedalam struct nama ([^\n]: untuk mengizinkan space)
 	
-	printf("\t2) Masukan absensi Mahasiswa - 10% : ");
+	printf("\t2) Masukan absensi\t: ");
 	scanf("%d", &pointer->absen); // mengalokasikan alamat nama kedalam struct absen
 
-	printf("\t3) Masukan nilai tugas - 20% : ");
+	printf("\t3) Masukan nilai tugas\t: ");
 	scanf("%d", &pointer->tugas); // mengalokasikan alamat nama kedalam struct tugas
 
-	printf("\t4) Masukan nilai UTS - 30% : ");
+	printf("\t4) Masukan nilai UTS\t: ");
 	scanf("%d", &pointer->uts); // mengalokasikan alamat nama kedalam struct uts
 
-	printf("\t5) Masukan nilai UAS - 40% : ");
+	printf("\t5) Masukan nilai UAS\t: ");
 	scanf("%d", &pointer->uas); // mengalokasikan alamat nama kedalam struct uas
     
     printf("--------------------------------------------------\n");
 	printf("|         Informasi Data Nilai Mahasiswa         |\n");
     printf("--------------------------------------------------\n");
 
-    printf("\t1) Nama Mahasiswa: %s\n", pointer->nama);	// tampilkan informasi nama mahasiswa
-    printf("\t2) Nilai Absen: %d\n", pointer->absen);	// tampilkan informasi nilai absen
-    printf("\t3) Nilai Tugas: %d\n", pointer->tugas);	// tampilkan informasi nilai tugas
-    printf("\t4) Nilai UTS: %d\n", pointer->uts);	// tampilkan informasi nilai uts
-    printf("\t5) Nilai UAS: %d\n", pointer->uas);	// tampilkan informasi nilai uas
+    printf("\t1) Nama Mahasiswa\t: %s\n", pointer->nama);	// tampilkan informasi nama mahasiswa
+    printf("\t2) Nilai Absen\t\t: %d\n", pointer->absen);	// tampilkan informasi nilai absen
+    printf("\t3) Nilai Tugas\t\t: %d\n", pointer->tugas);	// tampilkan informasi nilai tugas
+    printf("\t4) Nilai UTS\t\t: %d\n", pointer->uts);	// tampilkan informasi nilai uts
+    printf("\t5) Nilai UAS\t\t: %d\n", pointer->uas);	// tampilkan informasi nilai uas
 
     /*procedure in-line*/
 	int nilaiAkhir = (pointer->absen * 10 / 100) + (pointer->tugas * 20 / 100) + (pointer->uts * 30 / 100) + (pointer->uas * 40 / 100);
@@ -94,9 +95,16 @@ int main(){
 	printf("|                Hasil Kalkulasi                 |\n");
 	printf("--------------------------------------------------\n");
 	printf("\t1) Nilai Akhir\t: %d\n",  nilaiAkhir);
-
     /*execute procedure eksternal: SetGrade()*/
     cout<<"\t2) Grade\t: "; SetGrade(nilaiAkhir);
 
+    /*keterangan sebagai informatif*/
+    printf("--------------------------------------------------\n");
+	printf("|              Keterangan Kalkulasi              |\n");
+	printf("--------------------------------------------------\n");
+	printf("\t- Nilai Absensi memiliki bobot\t: 10%\n");
+	printf("\t- Nilai Tugas memiliki bobot\t: 20%\n");
+	printf("\t- Nilai UTS memiliki bobot\t: 30%\n");
+	printf("\t- Nilai UAS memiliki bobot\t: 40%\n");
     return 0;
 }
