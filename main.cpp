@@ -29,29 +29,29 @@ using namespace std;
 
 */
 
-/*pembuatan struct (data structure) - dengan nama Nilai*/
+/*pembuatan struct (data structure) dengan nama struct DataNilai*/
 struct DataNilai{
 	char nama[30];
-	int absen; 		// absen (10%) - member
-	int tugas; 	    // tugas (20%) member
-	int uts; 		// uts (30%) - member
-	int uas; 		// uas (40%) - member
+	int absen; 		// absen bertipe data int (10%) - member
+	int tugas; 	    // tugas bertipe data int (20%) member
+	int uts; 		// uts bertipe data int (30%) - member
+	int uas; 		// uas bertipe data int (40%) - member
 };
 /*membuat procedur SetGrade*/
-void SetGrade(int total){ 
-	char Grade;
-	if (total >= 80){
+void SetGrade(int nilaiAkhir){ 
+	char Grade; // deklarasi variabel Grade dengan tipe data char
+	if (nilaiAkhir >= 80){
 		Grade = 'A';
-	}else if (total > 70){
+	}else if (nilaiAkhir > 70){
 		Grade = 'B';
-	}else if (total > 60){
+	}else if (nilaiAkhir > 60){
 		Grade = 'C';
-	}else if (total > 50){
+	}else if (nilaiAkhir > 50){
 		Grade = 'D';
 	}else{
 		Grade = 'E';
 	}
-	cout << Grade << endl;
+	cout << Grade << endl; // cetak grade sesuai dengan kondisi dari parameter nilaiAkhir, yang diberikan pada int main()
 }
 /*program utama*/
 int main(){
@@ -83,22 +83,22 @@ int main(){
 	printf("|         Informasi Data Nilai Mahasiswa         |\n");
     printf("--------------------------------------------------\n");
 
-    printf("\t1) Nama Mahasiswa: %s\n", pointer->nama);	
-    printf("\t2) Nilai Absen: %d\n", pointer->absen);	
-    printf("\t3) Nilai Tugas: %d\n", pointer->tugas);	
-    printf("\t4) Nilai UTS: %d\n", pointer->uts);	
-    printf("\t5) Nilai UAS: %d\n", pointer->uas);
+    printf("\t1) Nama Mahasiswa: %s\n", pointer->nama);	// tampilkan informasi nama mahasiswa
+    printf("\t2) Nilai Absen: %d\n", pointer->absen);	// tampilkan informasi nilai absen
+    printf("\t3) Nilai Tugas: %d\n", pointer->tugas);	// tampilkan informasi nilai tugas
+    printf("\t4) Nilai UTS: %d\n", pointer->uts);	// tampilkan informasi nilai uts
+    printf("\t5) Nilai UAS: %d\n", pointer->uas);	// tampilkan informasi nilai uas
 
     /*procedure in-line*/
-	int total = (pointer->absen * 10 / 100) + (pointer->tugas * 20 / 100) + (pointer->uts * 30 / 100) + (pointer->uas * 40 / 100);
+	int nilaiAkhir = (pointer->absen * 10 / 100) + (pointer->tugas * 20 / 100) + (pointer->uts * 30 / 100) + (pointer->uas * 40 / 100);
     
 	printf("--------------------------------------------------\n");
 	printf("|                Hasil Kalkulasi                 |\n");
 	printf("--------------------------------------------------\n");
-	printf("\t1) Nilai Akhir\t: %d\n",  total);
+	printf("\t1) Nilai Akhir\t: %d\n",  nilaiAkhir);
 
     /*execute procedure eksternal: SetGrade()*/
-    cout<<"\t2) Grade\t: "; SetGrade(total);
+    cout<<"\t2) Grade\t: "; SetGrade(nilaiAkhir);
 
     return 0;
 }
