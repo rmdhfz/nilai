@@ -13,13 +13,13 @@ struct DataNilai{
 /*membuat procedur SetGrade*/
 void SetGrade(int total){ 
 	char Grade;
-	if (total >= 90){
+	if (total >= 80){
 		Grade = 'A';
-	}else if (total > 80 && total <= 89){
+	}else if (total > 70){
 		Grade = 'B';
-	}else if (total > 70 && total <= 79){
+	}else if (total > 60){
 		Grade = 'C';
-	}else if (total > 60 && total <= 69){
+	}else if (total > 50){
 		Grade = 'D';
 	}else{
 		Grade = 'E';
@@ -29,47 +29,49 @@ void SetGrade(int total){
 /*program utama*/
 int main(){
 
-	struct DataNilai data, *pointer; // pembuatan object diluar struct
+	DataNilai data, *pointer; // pembuatan object diluar struct
 	pointer = &data; // proses dereference https://stackoverflow.com/questions/4955198/what-does-dereferencing-a-pointer-mean
 
     printf("--------------------------------------------------\n");
 	printf("------  Program Menghitung Nilai Mahasiswa  ------\n");
     printf("--------------------------------------------------\n");
 
-	printf("Masukan nama Mahasiswa : ");
+	printf("\t1) Masukan nama Mahasiswa : ");
 	scanf("%29s", &pointer->nama); // mengalokasikan alamat nama kedalam struct nama
 	
-	printf("Masukan absensi Mahasiswa - 10% : ");
+	printf("\t2) Masukan absensi Mahasiswa - 10% : ");
 	scanf("%d", &pointer->absen); // mengalokasikan alamat nama kedalam struct absen
 
-	printf("Masukan nilai tugas - 20% : ");
+	printf("\t3) Masukan nilai tugas - 20% : ");
 	scanf("%d", &pointer->tugas); // mengalokasikan alamat nama kedalam struct tugas
 
-	printf("Masukan nilai UTS - 30% : ");
+	printf("\t4) Masukan nilai UTS - 30% : ");
 	scanf("%d", &pointer->uts); // mengalokasikan alamat nama kedalam struct uts
 
-	printf("Masukan nilai UAS - 40% : ");
+	printf("\t5) Masukan nilai UAS - 40% : ");
 	scanf("%d", &pointer->uas); // mengalokasikan alamat nama kedalam struct uas
     
     printf("--------------------------------------------------\n");
 	printf("|         Informasi Data Nilai Mahasiswa         |\n");
     printf("--------------------------------------------------\n");
 
-    printf("Nama Mahasiswa: %s\n", pointer->nama);	
-    printf("Nilai Absen: %d\n", pointer->absen);	
-    printf("Nilai Tugas: %d\n", pointer->tugas);	
-    printf("Nilai UTS: %d\n", pointer->uts);	
-    printf("Nilai UAS: %d\n", pointer->uas);
+    printf("\tNama Mahasiswa: %s\n", pointer->nama);	
+    printf("\tNilai Absen: %d\n", pointer->absen);	
+    printf("\tNilai Tugas: %d\n", pointer->tugas);	
+    printf("\tNilai UTS: %d\n", pointer->uts);	
+    printf("\tNilai UAS: %d\n", pointer->uas);
 
     /*procedure in-line*/
 	int total = (pointer->absen * 10 / 100) + (pointer->tugas * 20 / 100) + (pointer->uts * 30 / 100) + (pointer->uas * 40 / 100);
     /*procedure in-line*/
     
-    printf("----------------\n");
-    printf("Hasil : %d\n",  total);
+    printf("--------------------------------------------------\n");
+	printf("|                 Hasil Kalkulasi                |\n");
+    printf("--------------------------------------------------\n");
+    printf("\tHasil : %d\n",  total);
 
     /*execute procedure eksternal: SetGrade()*/
-    cout<<"Grade of : "; SetGrade(total);
+    cout<<"\tGrade: "; SetGrade(total);
 
     return 0;
 }
