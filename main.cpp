@@ -1,6 +1,3 @@
-#include <iostream>
-using namespace std;
-
 /*
 	MIT License
 
@@ -24,11 +21,12 @@ using namespace std;
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 	SOFTWARE.
 	
-	github: https://github.com/rmdhfz/nilai
 	name: Hafiz Ramadhan
+	github: https://github.com/rmdhfz/nilai
 
 */
-
+#include <iostream>
+using namespace std;
 /*pembuatan struct (data structure) dengan nama struct DataNilai*/
 struct DataNilai{
 	char nama[30];
@@ -65,7 +63,7 @@ int main(){
 	printf("--------------------------------------------------\n");
 
 	printf("\t1) Masukan nama Mahasiswa : ");
-	scanf("%29s", &pointer->nama); // mengalokasikan alamat nama kedalam struct nama
+	scanf("%29[^\n]%c", &pointer->nama); // mengalokasikan alamat nama kedalam struct nama ([^\n]: untuk mengizinkan space)
 	
 	printf("\t2) Masukan absensi Mahasiswa - 10% : ");
 	scanf("%d", &pointer->absen); // mengalokasikan alamat nama kedalam struct absen
