@@ -40,6 +40,22 @@ struct DataNilai{
 	int uts; 		// uts bertipe data int (30%) - member
 	int uas; 		// uas bertipe data int (40%) - member
 };
+/*membuat procedure BuatSaran*/
+void BuatSaran(int nilai){
+	string Saran;
+	if (nilai >= 80){
+		Saran = "Bagus, terus tingkatkan prestasimu!";
+	}else if (nilai >= 70){
+		Saran = "Bagus, semangat terus belajarnya!";
+	}else if (nilai >= 60){
+		Saran = "Bagus, Lebih giat lagi belajarnya!";
+	}else if (nilai >= 50){
+		Saran = "Kamu harus lebih giat lagi belajarnya!";
+	}else{
+		Saran = "Nilai kamu jelek, kamu harus lebih giat & rajin lagi belajarnya ya!";
+	}
+	cout << "\t4) Saran\t: "<< Saran << endl;
+}
 /*membuat procedure SetGrade*/
 void SetGrade(int nilaiAkhir){ 
 	char Grade; // deklarasi variabel Grade dengan tipe data char
@@ -55,14 +71,16 @@ void SetGrade(int nilaiAkhir){
 		note = "Anda lulus dengan nilai yang cukup baik";
 	}else if (nilaiAkhir >= 50){
 		Grade = 'D';
-		note = "Nilai anda kurang baik";
+		note = "Nilai anda kurang baik\n";
 	}else{
 		Grade = 'E';
-		note = "Anda tidak lulus, nilai anda tidak baik";
+		note = "\033[1;31mAnda tidak lulus, nilai anda tidak baik\033[0m\n";
 	}
 	cout << Grade << endl; // cetak grade sesuai dengan kondisi dari parameter nilaiAkhir, yang diberikan pada int main()
 	cout << "\t3) Keterangan\t: " << note << endl; // cetak note sesuai dengan kondisi dari parameter nilaiAkhir, yang diberikan pada int main()
+	BuatSaran(nilaiAkhir);
 }
+
 /*program utama*/
 int main(){
 
@@ -77,7 +95,7 @@ int main(){
 	printf("\t1) Masukan nama\t\t: ");
 	scanf("%29[^\n]%c", &pointer->nama); // mengalokasikan alamat nama kedalam struct nama ([^\n]: untuk mengizinkan space)
 	
-	printf("\t2) Masukan absensi\t: ");
+	printf("\t2) Masukan nilai absen\t: ");
 	scanf("%d", &pointer->absen); // mengalokasikan alamat nama kedalam struct absen
 
 	printf("\t3) Masukan nilai tugas\t: ");
